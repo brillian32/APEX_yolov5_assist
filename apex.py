@@ -22,7 +22,6 @@ from simple_pid import PID
 
 from widget import ui_mainFrom
 
-
 parser = argparse.ArgumentParser()
 parser.add_argument('--model-path', type=str, default='weights/best.pt', help='模型位址 model address')
 parser.add_argument('--imgsz', type=int, default=640, help='和訓練模型时imgsz一樣')
@@ -33,11 +32,11 @@ parser.add_argument('--show-window', type=bool, default=True,
                     help='是否顯示實時檢測窗口(debug用,若是True,不要去點右上角的X)')
 parser.add_argument('--top-most', type=bool, default=False, help='是否保持窗口置頂')
 parser.add_argument('--resize-window', type=float, default=1, help='缩放窗口大小,缩放系数')
-parser.add_argument('--thickness', type=int, default=5, help='邊框粗細，需大於1/resize-window')
+parser.add_argument('--thickness', type=int, default=4, help='邊框粗細，需大於1/resize-window')
 parser.add_argument('--show-fps', type=bool, default=True, help='是否顯示fps')
-parser.add_argument('--show-label', type=bool, default=False, help='是否顯示標籤')
+parser.add_argument('--show-label', type=bool, default=True, help='是否顯示標籤')
 
-parser.add_argument('--use_mss', type=str, default=False, help='是否使用mss截屏；为False時使用win32截屏')
+parser.add_argument('--use_mss', type=str, default=True, help='是否使用mss截屏；为False時使用win32截屏')
 
 parser.add_argument('--region', type=tuple, default=(0.18, 0.35),
                     help='檢測範圍；分别为x軸和y軸，(1.0, 1.0)表示全屏檢測，越低檢測範圍越小(以屏幕中心為檢測中心)')
@@ -84,7 +83,6 @@ names = model.module.names if hasattr(model, 'module') else model.names
 
 lock_mode = False
 team_mode = True
-lock_button = eval('pynput.mouse.Button.' + args.lock_button)
 
 mouse = pynput.mouse.Controller()
 
@@ -101,7 +99,7 @@ if args.show_window:
 
 def on_click(x, y, button, pressed):
     global lock_mode
-    if button == lock_button:
+    if button == eval('pynput.mouse.Button.' + args.lock_button):
         if args.hold_lock:
             if pressed:
                 lock_mode = True
@@ -120,13 +118,14 @@ listener.start()
 
 print('enjoy yourself!')
 
-
 # def AIFunc(a):
 
 
 # AIFunc()
 
 exit_loop = False
+
+
 # 继承QThread
 class Mythread(QThread):
     # 定义信号
@@ -142,12 +141,10 @@ class Mythread(QThread):
     def run(self):
         # 要定义的行为，比如开始一个活动什么的
         print('start....')
-        global t0
         t0 = time.time()
-        global cnt
         cnt = 0
         while True:
-            if cnt%10 == 0:
+            if cnt % 20 == 0:
                 top_x, top_y, x, y = get_parameters()
                 len_x, len_y = int(x * args.region[0]), int(y * args.region[1])
                 top_x, top_y = int(top_x + x // 2 * (1. - args.region[0])), int(top_y + y // 2 * (1. - args.region[1]))
@@ -240,19 +237,9 @@ def setParam(ui):
     args.use_mss = ui.mess.isChecked()
 
 
-
-
 def exit_loop():
     globals()['exit_loop'] = True
 
-# 线程1实例化
-aim_worker = Mythread()
-aim_worker.start()
-
-# lock函数在主线程
-aim_worker.lockingSig.connect(lock)
-aim_worker.showFpsSig.connect(show_fps)
-aim_worker.showTopMost.connect(show_top_most)
 
 app = QApplication(sys.argv)
 main_window = QMainWindow()
@@ -261,9 +248,24 @@ auto_ui_window.setupUi(main_window)  # 调用setupUi()方法，并传入 主窗�
 
 auto_ui_window.pushButton.clicked.connect(lambda: setParam(auto_ui_window))
 auto_ui_window.exit_btn.clicked.connect(lambda: exit_loop())
-auto_ui_window.exit_btn.clicked.connect(lambda: os._exit(0))  # 强退进程
+# auto_ui_window.exit_btn.clicked.connect(lambda: os._exit(0))  # 强退进程
 
 main_window.setWindowTitle('Apex 辅助')
 main_window.show()
+
+# 瞄准线程实例化
+aim_worker = Mythread()
+aim_worker.start()
+
+# lock函数在主线程
+aim_worker.lockingSig.connect(lock)
+aim_worker.showFpsSig.connect(show_fps)
+aim_worker.showTopMost.connect(show_top_most)
+
 main_window.activateWindow()
-os._exit(app.exec()) #强退进程
+app.exec()
+exit_loop()
+
+# 等待AI线程结束
+time.sleep(1)
+os._exit(0)  # 强退进程
