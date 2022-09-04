@@ -38,7 +38,7 @@ parser.add_argument('--show-label', type=bool, default=True, help='是否顯示�
 
 parser.add_argument('--use_mss', type=str, default=True, help='是否使用mss截屏；为False時使用win32截屏')
 
-parser.add_argument('--region', type=tuple, default=(0.18, 0.35),
+parser.add_argument('--region', type=list, default=[0.18, 0.35],
                     help='檢測範圍；分别为x軸和y軸，(1.0, 1.0)表示全屏檢測，越低檢測範圍越小(以屏幕中心為檢測中心)')
 
 parser.add_argument('--hold-lock', type=bool, default=True, help='lock模式；True為按住，False為切換')
@@ -96,6 +96,8 @@ if args.show_window:
     cv2.namedWindow('aim', cv2.WINDOW_NORMAL)
     cv2.resizeWindow('aim', int(len_x * args.resize_window), int(len_y * args.resize_window))
 
+exit_loop = False
+lock_mode_toggle = True
 
 def on_click(x, y, button, pressed):
     global lock_mode
@@ -103,10 +105,12 @@ def on_click(x, y, button, pressed):
         if args.hold_lock:
             if pressed:
                 lock_mode = True
+                # globals()['lock_mode_toggle'] = True
                 print('locking...')
             else:
                 lock_mode = False
                 print('lock mode off')
+                # globals()['lock_mode_toggle'] = False
         else:
             if pressed:
                 lock_mode = not lock_mode
@@ -123,7 +127,6 @@ print('enjoy yourself!')
 
 # AIFunc()
 
-exit_loop = False
 
 
 # 继承QThread
@@ -144,6 +147,10 @@ class Mythread(QThread):
         t0 = time.time()
         cnt = 0
         while True:
+            if globals()['lock_mode_toggle'] == False:
+                time.sleep(1)
+                print("globals()['lock_mode_toggle'] ", globals()['lock_mode_toggle'])
+                continue
             if cnt % 20 == 0:
                 top_x, top_y, x, y = get_parameters()
                 len_x, len_y = int(x * args.region[0]), int(y * args.region[1])
@@ -235,10 +242,17 @@ def setParam(ui):
     args.show_window = ui.debug.isChecked()
     args.lock_button = 'right' if ui.mouse.currentIndex() == 0 else 'left'
     args.use_mss = ui.mess.isChecked()
+    args.region[0] = ui.x_value.value()
+    args.region[1] = ui.y_value.value()
+    # 暂未设置 不生效状态
+    #args.model_path = ui.model_path.text()
+    args.detect_arange = ui.area_detect.value()
+    globals()['lock_mode_toggle'] = ui.start_lock.isChecked()
+    print("globals()['lock_mode_toggle'] ", globals()['lock_mode_toggle'])
 
-
-def exit_loop():
+def exit_loop_func():
     globals()['exit_loop'] = True
+
 
 
 app = QApplication(sys.argv)
@@ -247,7 +261,7 @@ auto_ui_window = ui_mainFrom.Ui_MainWindow()  # 实例化部件
 auto_ui_window.setupUi(main_window)  # 调用setupUi()方法，并传入 主窗口 参数。
 
 auto_ui_window.pushButton.clicked.connect(lambda: setParam(auto_ui_window))
-auto_ui_window.exit_btn.clicked.connect(lambda: exit_loop())
+auto_ui_window.exit_btn.clicked.connect(lambda: exit_loop_func())
 # auto_ui_window.exit_btn.clicked.connect(lambda: os._exit(0))  # 强退进程
 
 main_window.setWindowTitle('Apex 辅助')
@@ -264,7 +278,7 @@ aim_worker.showTopMost.connect(show_top_most)
 
 main_window.activateWindow()
 app.exec()
-exit_loop()
+exit_loop_func()
 
 # 等待AI线程结束
 time.sleep(1)
