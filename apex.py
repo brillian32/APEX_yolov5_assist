@@ -50,6 +50,7 @@ parser.add_argument('--lock-tag', type=list, default=[0], help='對應標籤；p
 parser.add_argument('--lock-choice', type=list, default=[0], help='目標選擇；决定鎖定的目標，從自己的標籤中選')
 
 parser.add_argument('--detect-arange', type=int, default=80000, help='检测范围')
+parser.add_argument('--head-to-foot', type=float, default=0, help='准星位置，从头到脚')
 
 global args
 args = parser.parse_args()
@@ -247,6 +248,8 @@ def setParam(ui):
     # 暂未设置 不生效状态
     #args.model_path = ui.model_path.text()
     args.detect_arange = ui.area_detect.value()
+    args.head_to_foot = ui.headtofoot.value()
+
     globals()['lock_mode_toggle'] = ui.start_lock.isChecked()
     print("globals()['lock_mode_toggle'] ", globals()['lock_mode_toggle'])
 

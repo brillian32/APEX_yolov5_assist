@@ -29,14 +29,14 @@ def lock(aims, mouse, top_x, top_y, len_x, len_y, args, pidx, pidy):
             y_center, height = len_y * float(y_center) + top_y, len_y * float(height)
             # rel_x = int(k / args.lock_sen * atan((mouse_pos_x - x_center) / 640) * 640)
             rel_x = -(mouse_pos_x - x_center) * args.lock_smooth
-            rel_y = -(mouse_pos_y - y_center + 1 / 3 * height) * args.lock_smooth
+            rel_y = -(mouse_pos_y - y_center + args.head_to_foot/20.0 * height) * args.lock_smooth
             # rel_y = int(k / args.lock_sen * atan((mouse_pos_y - y_center + 1 / 4 * height) / 640) * 640)#瞄準高度可自行調整(建議為1/4)
             # pid_movex = pidx(rel_x)
             # pid_movey = pidy(rel_y)
             # print(pid_movex, pid_movey)
             # ghub.mouse_xy(round(pid_movex), round(pid_movey))
             print(rel_x, rel_y)
-            if abs(mouse_pos_x - x_center) > 5 or abs(mouse_pos_y - y_center > 5):
+            if abs(mouse_pos_x - x_center) > 5 or abs(mouse_pos_y - y_center) > 5:
                 ghub.mouse_xy(round(rel_x), round(rel_y))
                 print('move mouse  ...', mouse_pos_x - x_center)
 
