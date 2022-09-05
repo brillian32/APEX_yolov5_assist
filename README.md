@@ -5,14 +5,19 @@
 
 ## show case
 
-1. **控制面板**
+* **控制面板**
 
 ![控制面板](./show_case/property_contorl.png)
 
-2. **识别效果**
+* **识别效果**
 
 ![img_1.png](img_1.png)
 
-3. **游戏内截图**
+* **游戏内截图**
 
 ![img.png](img.png)
+
+
+支持
+
+[https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
