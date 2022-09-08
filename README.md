@@ -6,8 +6,7 @@
 ## show case
 
 * **控制面板**
-
-![控制面板](./show_case/property_contorl.png)
+![img.png](img.png)
 
 * **识别效果**
 

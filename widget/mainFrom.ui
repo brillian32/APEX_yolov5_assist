@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>484</width>
-    <height>273</height>
+    <width>602</width>
+    <height>375</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -23,7 +23,7 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: #b1c9e4;</string>
+   <string notr="true">background: #202932;</string>
   </property>
   <property name="animated">
    <bool>true</bool>
@@ -39,6 +39,9 @@
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="4">
          <widget class="QCheckBox" name="start_lock">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="text">
            <string>开启锁人</string>
           </property>
@@ -52,6 +55,9 @@
           <property name="toolTip">
            <string>范围0~10,建议1</string>
           </property>
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="text">
            <string>平滑度</string>
           </property>
@@ -62,6 +68,9 @@
         </item>
         <item row="4" column="1">
          <widget class="QComboBox" name="plan">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <item>
            <property name="text">
             <string>长按</string>
@@ -76,6 +85,9 @@
         </item>
         <item row="6" column="4">
          <widget class="QDoubleSpinBox" name="smooth">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="maximum">
            <double>10.990000000000000</double>
           </property>
@@ -83,20 +95,23 @@
            <double>0.010000000000000</double>
           </property>
           <property name="value">
-           <double>0.500000000000000</double>
+           <double>0.200000000000000</double>
           </property>
          </widget>
         </item>
         <item row="2" column="4">
          <widget class="QDoubleSpinBox" name="iou">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="maximum">
-           <double>10.000000000000000</double>
+           <double>1.000000000000000</double>
           </property>
           <property name="singleStep">
            <double>0.010000000000000</double>
           </property>
           <property name="value">
-           <double>0.700000000000000</double>
+           <double>0.850000000000000</double>
           </property>
          </widget>
         </item>
@@ -124,9 +139,9 @@
              <string notr="true">/*滑块的样式*/
 QSlider::groove:horizontal {
 border: 1px solid #00B0AE;
-background: #00B0AE;
+background: #00000000;
 height: 2px;
-border-radius: 1px;
+border-radius: 8px;
 padding-left:0px;
 padding-right:0px;
 }
@@ -147,23 +162,22 @@ border-radius: 2px;
 }
 QSlider::handle:horizontal 
 {
-    background: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, 
-    stop:0.6 #00B0AE,stop:0.98409 rgba(255, 255, 255, 255));
-
+    background: #99efdc;
     width: 15px;
     margin-top: -6px;
     margin-bottom: -6px;
-    border-radius: 5px;
+	border-radius:16;
+
 }
 
 QSlider::handle:horizontal:hover {
-    background: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, 
-    stop:0.6 #00B0AE,stop:0.98409 rgba(255, 255, 255, 255));
+    background: #55e5c5;
 
     width: 15px;
     margin-top: -6px;
     margin-bottom: -6px;
-    border-radius: 5px;
+    border-radius: 16px;
+	border:16px;
 }
 
 
@@ -193,16 +207,6 @@ QSlider::handle:horizontal:hover {
           </item>
          </layout>
         </item>
-        <item row="9" column="1">
-         <widget class="QSpinBox" name="area_detect">
-          <property name="maximum">
-           <number>1000000000</number>
-          </property>
-          <property name="value">
-           <number>80000</number>
-          </property>
-         </widget>
-        </item>
         <item row="1" column="4">
          <widget class="QLabel" name="label_7">
           <property name="text">
@@ -212,6 +216,9 @@ QSlider::handle:horizontal:hover {
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_2">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="text">
            <string>置信阈值</string>
           </property>
@@ -225,6 +232,9 @@ QSlider::handle:horizontal:hover {
         </item>
         <item row="6" column="0">
          <widget class="QLabel" name="label_5">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="text">
            <string>瞄准模式</string>
           </property>
@@ -235,11 +245,14 @@ QSlider::handle:horizontal:hover {
         </item>
         <item row="12" column="4">
          <widget class="QDoubleSpinBox" name="y_value">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="maximum">
            <double>1.000000000000000</double>
           </property>
           <property name="singleStep">
-           <double>0.050000000000000</double>
+           <double>0.010000000000000</double>
           </property>
           <property name="value">
            <double>0.350000000000000</double>
@@ -248,6 +261,9 @@ QSlider::handle:horizontal:hover {
         </item>
         <item row="0" column="2">
          <widget class="QCheckBox" name="mess">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="text">
            <string>使用mess截屏</string>
           </property>
@@ -260,6 +276,9 @@ QSlider::handle:horizontal:hover {
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
            <widget class="QLabel" name="label_8">
+            <property name="styleSheet">
+             <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+            </property>
             <property name="text">
              <string>准星位置</string>
             </property>
@@ -272,6 +291,9 @@ QSlider::handle:horizontal:hover {
         </item>
         <item row="12" column="2">
          <widget class="QLabel" name="label_11">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="text">
            <string>y:</string>
           </property>
@@ -282,6 +304,9 @@ QSlider::handle:horizontal:hover {
         </item>
         <item row="4" column="4">
          <widget class="QComboBox" name="mouse">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <item>
            <property name="text">
             <string>右键</string>
@@ -296,6 +321,9 @@ QSlider::handle:horizontal:hover {
         </item>
         <item row="6" column="1">
          <widget class="QComboBox" name="aim_mode">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <item>
            <property name="text">
             <string>身体</string>
@@ -310,6 +338,9 @@ QSlider::handle:horizontal:hover {
         </item>
         <item row="4" column="2">
          <widget class="QLabel" name="label_3">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="text">
            <string>鼠标</string>
           </property>
@@ -320,6 +351,9 @@ QSlider::handle:horizontal:hover {
         </item>
         <item row="2" column="2">
          <widget class="QLabel" name="label">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="text">
            <string>交并比阈值</string>
           </property>
@@ -369,29 +403,25 @@ QSlider::handle:horizontal:hover {
         </item>
         <item row="12" column="1">
          <widget class="QDoubleSpinBox" name="x_value">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="maximum">
            <double>1.000000000000000</double>
           </property>
           <property name="singleStep">
-           <double>0.050000000000000</double>
+           <double>0.010000000000000</double>
           </property>
           <property name="value">
            <double>0.180000000000000</double>
           </property>
          </widget>
         </item>
-        <item row="9" column="0">
-         <widget class="QLabel" name="label_9">
-          <property name="text">
-           <string>检测范围</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="1">
          <widget class="QCheckBox" name="debug">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="text">
            <string>调试模式</string>
           </property>
@@ -402,19 +432,25 @@ QSlider::handle:horizontal:hover {
         </item>
         <item row="2" column="1">
          <widget class="QDoubleSpinBox" name="value_belive">
+          <property name="styleSheet">
+           <string notr="true">color:white;</string>
+          </property>
           <property name="maximum">
-           <double>10.000000000000000</double>
+           <double>1.000000000000000</double>
           </property>
           <property name="singleStep">
            <double>0.010000000000000</double>
           </property>
           <property name="value">
-           <double>0.100000000000000</double>
+           <double>0.250000000000000</double>
           </property>
          </widget>
         </item>
         <item row="4" column="0">
          <widget class="QLabel" name="label_4">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="text">
            <string>触发方式</string>
           </property>
@@ -430,6 +466,9 @@ QSlider::handle:horizontal:hover {
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
           </property>
           <property name="text">
            <string>使用Cuda</string>
@@ -457,8 +496,24 @@ QSlider::handle:horizontal:hover {
         </item>
         <item row="12" column="0">
          <widget class="QLabel" name="label_10">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
           <property name="text">
            <string>x:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="label_9">
+          <property name="styleSheet">
+           <string notr="true">color:white; font-family:Microsoft YaHei;</string>
+          </property>
+          <property name="text">
+           <string>截屏占比：</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -510,6 +565,63 @@ QSlider::handle:horizontal:hover {
         </item>
         <item>
          <widget class="QPushButton" name="pushButton">
+          <property name="styleSheet">
+           <string notr="true">QPushButton#pushButton:normal/*鼠标正常时的效果*/
+{
+    color:#000000;
+    background-color:rgb(153, 239, 220); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+    padding-left:4px;
+    padding-top:4px;
+}
+ 
+ /*鼠标悬浮时的效果*/
+QPushButton#pushButton:hover
+{
+    color:#000000;
+    background-color:rgb(85, 229, 197); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+}
+
+/*如果按下与悬浮想同时产生效果，hover必须写在pressed的后面*/
+/*鼠标按下时的效果*/
+QPushButton#pushButton:pressed
+{
+    color:#000000;
+    background-color:rgb(85, 229, 197); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+    padding-left:6px;
+    padding-top:6px;
+}
+
+/*鼠标不可用时的效果*/
+QPushButton#pushButton:disabled
+{
+    color:#000000;
+    background-color:rgb(40, 85, 20); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+    padding-left:6px;
+    padding-top:6px;
+}
+ 
+QPushButton
+{
+    color:#000000; /*文字颜色*/
+    background-color:rgb(153, 239, 220);/*背景色*/
+    border-style:outset; /*边框风格*/
+    border-width:2px;/*边框宽度*/
+    border-color:rgb(29, 38, 47); /*边框颜色*/
+    border-radius:15px; /*边框倒角*/
+    font:bold 14px; /*字体*/
+    font-family: Segoe UI;
+    min-width:100px;/*控件最小宽度*/
+    min-height:20px;/*控件最小高度*/
+    padding:4px;/*内边距*/
+}
+ 
+
+</string>
+          </property>
           <property name="text">
            <string>确认修改</string>
           </property>
@@ -530,6 +642,62 @@ QSlider::handle:horizontal:hover {
         </item>
         <item>
          <widget class="QPushButton" name="exit_btn">
+          <property name="styleSheet">
+           <string notr="true">QPushButton:normal/*鼠标正常时的效果*/
+{
+    color:#000000;
+    background-color:rgb(153, 239, 220); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+    padding-left:4px;
+    padding-top:4px;
+}
+ 
+ /*鼠标悬浮时的效果*/
+QPushButton:hover
+{
+    color:#000000;
+    background-color:rgb(85, 229, 197); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+}
+
+/*如果按下与悬浮想同时产生效果，hover必须写在pressed的后面*/
+/*鼠标按下时的效果*/
+QPushButton:pressed
+{
+    color:#000000;
+    background-color:rgb(85, 229, 197); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+    padding-left:6px;
+    padding-top:6px;
+}
+
+/*鼠标不可用时的效果*/
+QPushButton:disabled
+{
+    color:#000000;
+    background-color:rgb(40, 85, 20); /*改变背景色*/
+    border-style:inset;/*改变边框风格*/
+    padding-left:6px;
+    padding-top:6px;
+}
+ 
+QPushButton
+{
+    color:#000000; /*文字颜色*/
+    background-color:rgb(153, 239, 220);/*背景色*/
+    border-style:outset; /*边框风格*/
+    border-width:2px;/*边框宽度*/
+    border-color:rgb(29, 38, 47); /*边框颜色*/
+    border-radius:15px; /*边框倒角*/
+    font:bold 14px; /*字体*/
+    font-family: Segoe UI;
+    min-width:100px;/*控件最小宽度*/
+    min-height:20px;/*控件最小高度*/
+    padding:4px;/*内边距*/
+}
+ 
+</string>
+          </property>
           <property name="text">
            <string>进程退出</string>
           </property>

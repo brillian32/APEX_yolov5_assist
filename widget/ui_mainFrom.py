@@ -15,9 +15,9 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowModality(QtCore.Qt.NonModal)
-        MainWindow.resize(484, 273)
+        MainWindow.resize(602, 375)
         MainWindow.setMaximumSize(QtCore.QSize(800, 800))
-        MainWindow.setStyleSheet("background: #b1c9e4;")
+        MainWindow.setStyleSheet("background: #202932;")
         MainWindow.setAnimated(True)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -31,28 +31,33 @@ class Ui_MainWindow(object):
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
         self.start_lock = QtWidgets.QCheckBox(self.centralwidget)
+        self.start_lock.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.start_lock.setChecked(True)
         self.start_lock.setObjectName("start_lock")
         self.gridLayout.addWidget(self.start_lock, 0, 4, 1, 1)
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
+        self.label_6.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.label_6.setAlignment(QtCore.Qt.AlignCenter)
         self.label_6.setObjectName("label_6")
         self.gridLayout.addWidget(self.label_6, 6, 2, 1, 1)
         self.plan = QtWidgets.QComboBox(self.centralwidget)
+        self.plan.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.plan.setObjectName("plan")
         self.plan.addItem("")
         self.plan.addItem("")
         self.gridLayout.addWidget(self.plan, 4, 1, 1, 1)
         self.smooth = QtWidgets.QDoubleSpinBox(self.centralwidget)
+        self.smooth.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.smooth.setMaximum(10.99)
         self.smooth.setSingleStep(0.01)
-        self.smooth.setProperty("value", 0.5)
+        self.smooth.setProperty("value", 0.2)
         self.smooth.setObjectName("smooth")
         self.gridLayout.addWidget(self.smooth, 6, 4, 1, 1)
         self.iou = QtWidgets.QDoubleSpinBox(self.centralwidget)
-        self.iou.setMaximum(10.0)
+        self.iou.setStyleSheet("color:white; font-family:Microsoft YaHei;")
+        self.iou.setMaximum(1.0)
         self.iou.setSingleStep(0.01)
-        self.iou.setProperty("value", 0.7)
+        self.iou.setProperty("value", 0.85)
         self.iou.setObjectName("iou")
         self.gridLayout.addWidget(self.iou, 2, 4, 1, 1)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
@@ -64,9 +69,9 @@ class Ui_MainWindow(object):
         self.headtofoot.setStyleSheet("/*滑块的样式*/\n"
 "QSlider::groove:horizontal {\n"
 "border: 1px solid #00B0AE;\n"
-"background: #00B0AE;\n"
+"background: #00000000;\n"
 "height: 2px;\n"
-"border-radius: 1px;\n"
+"border-radius: 8px;\n"
 "padding-left:0px;\n"
 "padding-right:0px;\n"
 "}\n"
@@ -87,23 +92,22 @@ class Ui_MainWindow(object):
 "}\n"
 "QSlider::handle:horizontal \n"
 "{\n"
-"    background: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, \n"
-"    stop:0.6 #00B0AE,stop:0.98409 rgba(255, 255, 255, 255));\n"
-"\n"
+"    background: #99efdc;\n"
 "    width: 15px;\n"
 "    margin-top: -6px;\n"
 "    margin-bottom: -6px;\n"
-"    border-radius: 5px;\n"
+"    border-radius:16;\n"
+"\n"
 "}\n"
 "\n"
 "QSlider::handle:horizontal:hover {\n"
-"    background: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, \n"
-"    stop:0.6 #00B0AE,stop:0.98409 rgba(255, 255, 255, 255));\n"
+"    background: #55e5c5;\n"
 "\n"
 "    width: 15px;\n"
 "    margin-top: -6px;\n"
 "    margin-bottom: -6px;\n"
-"    border-radius: 5px;\n"
+"    border-radius: 16px;\n"
+"    border:16px;\n"
 "}\n"
 "\n"
 "\n"
@@ -119,60 +123,65 @@ class Ui_MainWindow(object):
         self.headtofoot.setObjectName("headtofoot")
         self.horizontalLayout_3.addWidget(self.headtofoot)
         self.gridLayout.addLayout(self.horizontalLayout_3, 9, 4, 1, 1)
-        self.area_detect = QtWidgets.QSpinBox(self.centralwidget)
-        self.area_detect.setMaximum(1000000000)
-        self.area_detect.setProperty("value", 80000)
-        self.area_detect.setObjectName("area_detect")
-        self.gridLayout.addWidget(self.area_detect, 9, 1, 1, 1)
         self.label_7 = QtWidgets.QLabel(self.centralwidget)
         self.label_7.setText("")
         self.label_7.setObjectName("label_7")
         self.gridLayout.addWidget(self.label_7, 1, 4, 1, 1)
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setWordWrap(True)
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
+        self.label_5.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.label_5.setAlignment(QtCore.Qt.AlignCenter)
         self.label_5.setObjectName("label_5")
         self.gridLayout.addWidget(self.label_5, 6, 0, 1, 1)
         self.y_value = QtWidgets.QDoubleSpinBox(self.centralwidget)
+        self.y_value.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.y_value.setMaximum(1.0)
-        self.y_value.setSingleStep(0.05)
+        self.y_value.setSingleStep(0.01)
         self.y_value.setProperty("value", 0.35)
         self.y_value.setObjectName("y_value")
         self.gridLayout.addWidget(self.y_value, 12, 4, 1, 1)
         self.mess = QtWidgets.QCheckBox(self.centralwidget)
+        self.mess.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.mess.setChecked(True)
         self.mess.setObjectName("mess")
         self.gridLayout.addWidget(self.mess, 0, 2, 1, 1)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.label_8 = QtWidgets.QLabel(self.centralwidget)
+        self.label_8.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.label_8.setAlignment(QtCore.Qt.AlignCenter)
         self.label_8.setObjectName("label_8")
         self.horizontalLayout_2.addWidget(self.label_8)
         self.gridLayout.addLayout(self.horizontalLayout_2, 9, 2, 1, 1)
         self.label_11 = QtWidgets.QLabel(self.centralwidget)
+        self.label_11.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.label_11.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_11.setObjectName("label_11")
         self.gridLayout.addWidget(self.label_11, 12, 2, 1, 1)
         self.mouse = QtWidgets.QComboBox(self.centralwidget)
+        self.mouse.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.mouse.setObjectName("mouse")
         self.mouse.addItem("")
         self.mouse.addItem("")
         self.gridLayout.addWidget(self.mouse, 4, 4, 1, 1)
         self.aim_mode = QtWidgets.QComboBox(self.centralwidget)
+        self.aim_mode.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.aim_mode.setObjectName("aim_mode")
         self.aim_mode.addItem("")
         self.aim_mode.addItem("")
         self.gridLayout.addWidget(self.aim_mode, 6, 1, 1, 1)
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.label_3.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_3.setObjectName("label_3")
         self.gridLayout.addWidget(self.label_3, 4, 2, 1, 1)
         self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 2, 2, 1, 1)
@@ -183,26 +192,26 @@ class Ui_MainWindow(object):
         spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.gridLayout.addItem(spacerItem3, 5, 0, 1, 1)
         self.x_value = QtWidgets.QDoubleSpinBox(self.centralwidget)
+        self.x_value.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.x_value.setMaximum(1.0)
-        self.x_value.setSingleStep(0.05)
+        self.x_value.setSingleStep(0.01)
         self.x_value.setProperty("value", 0.18)
         self.x_value.setObjectName("x_value")
         self.gridLayout.addWidget(self.x_value, 12, 1, 1, 1)
-        self.label_9 = QtWidgets.QLabel(self.centralwidget)
-        self.label_9.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_9.setObjectName("label_9")
-        self.gridLayout.addWidget(self.label_9, 9, 0, 1, 1)
         self.debug = QtWidgets.QCheckBox(self.centralwidget)
+        self.debug.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.debug.setChecked(True)
         self.debug.setObjectName("debug")
         self.gridLayout.addWidget(self.debug, 0, 1, 1, 1)
         self.value_belive = QtWidgets.QDoubleSpinBox(self.centralwidget)
-        self.value_belive.setMaximum(10.0)
+        self.value_belive.setStyleSheet("color:white;")
+        self.value_belive.setMaximum(1.0)
         self.value_belive.setSingleStep(0.01)
-        self.value_belive.setProperty("value", 0.1)
+        self.value_belive.setProperty("value", 0.25)
         self.value_belive.setObjectName("value_belive")
         self.gridLayout.addWidget(self.value_belive, 2, 1, 1, 1)
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_4.setObjectName("label_4")
         self.gridLayout.addWidget(self.label_4, 4, 0, 1, 1)
@@ -212,6 +221,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.cuda.sizePolicy().hasHeightForWidth())
         self.cuda.setSizePolicy(sizePolicy)
+        self.cuda.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.cuda.setChecked(True)
         self.cuda.setTristate(False)
         self.cuda.setObjectName("cuda")
@@ -219,9 +229,15 @@ class Ui_MainWindow(object):
         spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.gridLayout.addItem(spacerItem4, 1, 0, 1, 1)
         self.label_10 = QtWidgets.QLabel(self.centralwidget)
+        self.label_10.setStyleSheet("color:white; font-family:Microsoft YaHei;")
         self.label_10.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_10.setObjectName("label_10")
         self.gridLayout.addWidget(self.label_10, 12, 0, 1, 1)
+        self.label_9 = QtWidgets.QLabel(self.centralwidget)
+        self.label_9.setStyleSheet("color:white; font-family:Microsoft YaHei;")
+        self.label_9.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_9.setObjectName("label_9")
+        self.gridLayout.addWidget(self.label_9, 9, 0, 1, 1)
         self.verticalLayout_2.addLayout(self.gridLayout)
         spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem5)
@@ -232,11 +248,120 @@ class Ui_MainWindow(object):
         spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem7)
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setStyleSheet("QPushButton#pushButton:normal/*鼠标正常时的效果*/\n"
+"{\n"
+"    color:#000000;\n"
+"    background-color:rgb(153, 239, 220); /*改变背景色*/\n"
+"    border-style:inset;/*改变边框风格*/\n"
+"    padding-left:4px;\n"
+"    padding-top:4px;\n"
+"}\n"
+" \n"
+" /*鼠标悬浮时的效果*/\n"
+"QPushButton#pushButton:hover\n"
+"{\n"
+"    color:#000000;\n"
+"    background-color:rgb(85, 229, 197); /*改变背景色*/\n"
+"    border-style:inset;/*改变边框风格*/\n"
+"}\n"
+"\n"
+"/*如果按下与悬浮想同时产生效果，hover必须写在pressed的后面*/\n"
+"/*鼠标按下时的效果*/\n"
+"QPushButton#pushButton:pressed\n"
+"{\n"
+"    color:#000000;\n"
+"    background-color:rgb(85, 229, 197); /*改变背景色*/\n"
+"    border-style:inset;/*改变边框风格*/\n"
+"    padding-left:6px;\n"
+"    padding-top:6px;\n"
+"}\n"
+"\n"
+"/*鼠标不可用时的效果*/\n"
+"QPushButton#pushButton:disabled\n"
+"{\n"
+"    color:#000000;\n"
+"    background-color:rgb(40, 85, 20); /*改变背景色*/\n"
+"    border-style:inset;/*改变边框风格*/\n"
+"    padding-left:6px;\n"
+"    padding-top:6px;\n"
+"}\n"
+" \n"
+"QPushButton\n"
+"{\n"
+"    color:#000000; /*文字颜色*/\n"
+"    background-color:rgb(153, 239, 220);/*背景色*/\n"
+"    border-style:outset; /*边框风格*/\n"
+"    border-width:2px;/*边框宽度*/\n"
+"    border-color:rgb(29, 38, 47); /*边框颜色*/\n"
+"    border-radius:15px; /*边框倒角*/\n"
+"    font:bold 14px; /*字体*/\n"
+"    font-family: Segoe UI;\n"
+"    min-width:100px;/*控件最小宽度*/\n"
+"    min-height:20px;/*控件最小高度*/\n"
+"    padding:4px;/*内边距*/\n"
+"}\n"
+" \n"
+"\n"
+"")
         self.pushButton.setObjectName("pushButton")
         self.horizontalLayout.addWidget(self.pushButton)
         spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem8)
         self.exit_btn = QtWidgets.QPushButton(self.centralwidget)
+        self.exit_btn.setStyleSheet("QPushButton:normal/*鼠标正常时的效果*/\n"
+"{\n"
+"    color:#000000;\n"
+"    background-color:rgb(153, 239, 220); /*改变背景色*/\n"
+"    border-style:inset;/*改变边框风格*/\n"
+"    padding-left:4px;\n"
+"    padding-top:4px;\n"
+"}\n"
+" \n"
+" /*鼠标悬浮时的效果*/\n"
+"QPushButton:hover\n"
+"{\n"
+"    color:#000000;\n"
+"    background-color:rgb(85, 229, 197); /*改变背景色*/\n"
+"    border-style:inset;/*改变边框风格*/\n"
+"}\n"
+"\n"
+"/*如果按下与悬浮想同时产生效果，hover必须写在pressed的后面*/\n"
+"/*鼠标按下时的效果*/\n"
+"QPushButton:pressed\n"
+"{\n"
+"    color:#000000;\n"
+"    background-color:rgb(85, 229, 197); /*改变背景色*/\n"
+"    border-style:inset;/*改变边框风格*/\n"
+"    padding-left:6px;\n"
+"    padding-top:6px;\n"
+"}\n"
+"\n"
+"/*鼠标不可用时的效果*/\n"
+"QPushButton:disabled\n"
+"{\n"
+"    color:#000000;\n"
+"    background-color:rgb(40, 85, 20); /*改变背景色*/\n"
+"    border-style:inset;/*改变边框风格*/\n"
+"    padding-left:6px;\n"
+"    padding-top:6px;\n"
+"}\n"
+" \n"
+"QPushButton\n"
+"{\n"
+"    color:#000000; /*文字颜色*/\n"
+"    background-color:rgb(153, 239, 220);/*背景色*/\n"
+"    border-style:outset; /*边框风格*/\n"
+"    border-width:2px;/*边框宽度*/\n"
+"    border-color:rgb(29, 38, 47); /*边框颜色*/\n"
+"    border-radius:15px; /*边框倒角*/\n"
+"    font:bold 14px; /*字体*/\n"
+"    font-family: Segoe UI;\n"
+"    min-width:100px;/*控件最小宽度*/\n"
+"    min-height:20px;/*控件最小高度*/\n"
+"    padding:4px;/*内边距*/\n"
+"}\n"
+" \n"
+"")
         self.exit_btn.setObjectName("exit_btn")
         self.horizontalLayout.addWidget(self.exit_btn)
         spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
@@ -275,10 +400,10 @@ class Ui_MainWindow(object):
         self.aim_mode.setItemText(1, _translate("MainWindow", "头"))
         self.label_3.setText(_translate("MainWindow", "鼠标"))
         self.label.setText(_translate("MainWindow", "交并比阈值"))
-        self.label_9.setText(_translate("MainWindow", "检测范围"))
         self.debug.setText(_translate("MainWindow", "调试模式"))
         self.label_4.setText(_translate("MainWindow", "触发方式"))
         self.cuda.setText(_translate("MainWindow", "使用Cuda"))
         self.label_10.setText(_translate("MainWindow", "x:"))
+        self.label_9.setText(_translate("MainWindow", "截屏占比："))
         self.pushButton.setText(_translate("MainWindow", "确认修改"))
         self.exit_btn.setText(_translate("MainWindow", "进程退出"))
