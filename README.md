@@ -11,13 +11,16 @@
 
 * **识别效果**
 
-![img_1.png](img_1.png)
+![img_1.png](show_case/img_1.png)
 
 * **游戏内截图**
 
-![img.png](img.png)
+![img.png](show_case/img.png)
 
+## 模型训练代码仓库
+基于yolov5的release 5.0版本 [https://github.com/brillian32/apex_yolov5_train](https://github.com/brillian32/apex_yolov5_train)
 
-支持
+----------------------------------
+**支持**
 
 [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
