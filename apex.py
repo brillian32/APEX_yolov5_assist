@@ -23,14 +23,14 @@ from simple_pid import PID
 from widget import ui_mainFrom
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--model-path', type=str, default='weights/best.pt', help='模型位址 model address')
+parser.add_argument('--model-path', type=str, default='weights/1best.pt', help='模型位址 model address')
 parser.add_argument('--imgsz', type=int, default=640, help='和訓練模型时imgsz一樣')
-parser.add_argument('--conf-thres', type=float, default=0.1, help='置信閥值')
-parser.add_argument('--iou-thres', type=float, default=0.7, help='交並比閥值')
+parser.add_argument('--conf-thres', type=float, default=0.25, help='置信閥值')#推荐0.25
+parser.add_argument('--iou-thres', type=float, default=0.05, help='交並比閥值') #要小些好？
 parser.add_argument('--use-cuda', type=bool, default=True, help='是否使用cuda')
 parser.add_argument('--show-window', type=bool, default=True,
                     help='是否顯示實時檢測窗口(debug用,若是True,不要去點右上角的X)')
-parser.add_argument('--top-most', type=bool, default=False, help='是否保持窗口置頂')
+parser.add_argument('--top-most', type=bool, default=True, help='是否保持窗口置頂')
 parser.add_argument('--resize-window', type=float, default=1, help='缩放窗口大小,缩放系数')
 parser.add_argument('--thickness', type=int, default=4, help='邊框粗細，需大於1/resize-window')
 parser.add_argument('--show-fps', type=bool, default=True, help='是否顯示fps')
@@ -216,9 +216,9 @@ class Mythread(QThread):
                         # print("top_left:", top_left)
                         bottom_right = (int(x_center + width / 2.), int(y_center + height / 2.))
                         # print("bottom_right:", bottom_right)
-                        cv2.rectangle(img0, top_left, bottom_right, (0, 255, 0), thickness=args.thickness)
+                        cv2.rectangle(img0, top_left, bottom_right, (197, 229, 85), thickness=args.thickness)
                         if args.show_label:
-                            cv2.putText(img0, tag, top_left, cv2.FONT_HERSHEY_SIMPLEX, 0.7, (235, 0, 0), 4)
+                            cv2.putText(img0, tag, top_left, cv2.FONT_HERSHEY_SIMPLEX, 0.7, (7, 91, 142), 4)
 
             if args.show_window:
                 if args.show_fps:
@@ -265,7 +265,7 @@ auto_ui_window.setupUi(main_window)  # 调用setupUi()方法，并传入 主窗�
 
 auto_ui_window.pushButton.clicked.connect(lambda: setParam(auto_ui_window))
 auto_ui_window.exit_btn.clicked.connect(lambda: exit_loop_func())
-# auto_ui_window.exit_btn.clicked.connect(lambda: os._exit(0))  # 强退进程
+auto_ui_window.exit_btn.clicked.connect(lambda: os._exit(0))  # 强退进程
 
 main_window.setWindowTitle('Apex 辅助')
 main_window.show()
