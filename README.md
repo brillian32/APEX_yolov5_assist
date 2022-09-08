@@ -6,7 +6,9 @@
 ## show case
 
 * **控制面板**
+
 ![img.png](img.png)
+
 
 * **识别效果**
 
