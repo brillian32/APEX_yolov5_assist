@@ -9,7 +9,7 @@
 - 改进鼠标移动体验
 - 打包发布
 
-## show case
+## Show Case
 
 * **控制面板**
 
@@ -27,11 +27,11 @@
 ## 模型训练代码仓库
 基于yolov5的release 5.0版本 [https://github.com/brillian32/apex_yolov5_train](https://github.com/brillian32/apex_yolov5_train)
 
-## 仓库中的权重文件已被删除，可联系我获取
+### 仓库中的权重文件已被删除，可联系我获取
 
 ![img.png](show_case/3img.png)
 
 ----------------------------------
-**支持**
+## 支持
 
 [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
